@@ -39,9 +39,8 @@ class RegisterScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start, // left alignment
               children: [
-                // Top-left Logo / Icon
                 SizedBox(
-                  height: 60.h,
+                  height: 70.h,
                   width: 60.w,
                   child: Image.asset(
                     'assets/images/bg_icon.png',

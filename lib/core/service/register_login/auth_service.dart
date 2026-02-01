@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:home_workout_app/features/register/model/user_model.dart';
+import 'package:home_workout_app/features/users/register/model/user_model.dart';
 // import '../../features/login/model/user_model.dart';
 
 class AuthService {
