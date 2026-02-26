@@ -25,7 +25,7 @@ class AuthController extends GetxController {
 
   // RxBool isLoading = false.obs;
   //
-  // Login method\
+
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   Future<String?> login(String email, String password) async {

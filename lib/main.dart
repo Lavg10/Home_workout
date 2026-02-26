@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           ),
 
-          initialRoute: AppRoutes.adminnavbar,
+          initialRoute: AppRoutes.register,
           // initialRoute: Routes.staffReport,
           getPages: AppPages.pages,
         );
