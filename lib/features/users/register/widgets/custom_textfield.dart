@@ -27,7 +27,7 @@ class CustomTextField extends StatelessWidget {
           style: TextStyle(
             fontSize: 14.sp,
             fontWeight: FontWeight.w600,
-            color: AppColors.white,
+            color: AppColors.black,
           ),
         ),
         SizedBox(height: 6.h),
@@ -37,7 +37,7 @@ class CustomTextField extends StatelessWidget {
           obscureText: obscureText,
           style: TextStyle(
             fontSize: 16.sp,
-            color: AppColors.white, // typed text color
+            color: AppColors.black, // typed text color
           ),
           decoration: InputDecoration(
             hintText: hintText,
@@ -50,26 +50,26 @@ class CustomTextField extends StatelessWidget {
               vertical: 14.h,
             ),
 
-            // ✅ White border for all states
+            //  White border for all states
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.r),
-              borderSide: BorderSide(color: AppColors.white),
+              borderSide: BorderSide(color: AppColors.green),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.r),
-              borderSide: BorderSide(color: AppColors.white, width: 2),
+              borderSide: BorderSide(color: AppColors.green, width: 2),
             ),
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.r),
-              borderSide: BorderSide(color: AppColors.white),
+              borderSide: BorderSide(color: AppColors.green),
             ),
             focusedErrorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.r),
-              borderSide: BorderSide(color: AppColors.white, width: 2),
+              borderSide: BorderSide(color: AppColors.green, width: 2),
             ),
             disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.r),
-              borderSide: BorderSide(color: AppColors.white),
+              borderSide: BorderSide(color: AppColors.green),
             ),
           ),
         ),

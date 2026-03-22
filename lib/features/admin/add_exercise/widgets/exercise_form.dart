@@ -14,7 +14,9 @@ class ExerciseForm extends StatelessWidget {
   final AddExerciseController controller = Get.put(AddExerciseController());
 
   final TextEditingController nameController = TextEditingController();
-
+  final TextEditingController imageController = TextEditingController();
+  final TextEditingController setsController = TextEditingController();
+  final TextEditingController repsController = TextEditingController();
   final String type; // Beginner/Intermediate/Advanced
   final String category; // Chest/Leg/Shoulder/Back/Abs
 
@@ -31,10 +33,55 @@ class ExerciseForm extends StatelessWidget {
         padding: EdgeInsets.all(16.w),
         child: Column(
           children: [
+            // CustomTextField(
+            //   label: 'Exercise Name',
+            //   controller: nameController,
+            //   hintText: 'Enter exercise name',
+            // ),
             CustomTextField(
               label: 'Exercise Name',
               controller: nameController,
               hintText: 'Enter exercise name',
+            ),
+
+            SizedBox(height: 12.h),
+
+            Obx(() {
+              return Column(
+                children: [
+                  controller.selectedImage.value == null
+                      ? const Text("No image selected")
+                      : Image.file(
+                          controller.selectedImage.value!,
+                          height: 120,
+                        ),
+
+                  SizedBox(height: 10.h),
+
+                  CustomButton(
+                    title: "Pick Image",
+                    onTap: () {
+                      controller.pickImage();
+                    },
+                  ),
+                ],
+              );
+            }),
+
+            SizedBox(height: 12.h),
+
+            CustomTextField(
+              label: 'Sets',
+              controller: setsController,
+              hintText: 'Enter sets (e.g. 3)',
+            ),
+
+            SizedBox(height: 12.h),
+
+            CustomTextField(
+              label: 'Reps',
+              controller: repsController,
+              hintText: 'Enter reps (e.g. 12)',
             ),
             SizedBox(height: 20.h),
             Obx(
@@ -43,15 +90,29 @@ class ExerciseForm extends StatelessWidget {
                   : CustomButton(
                       title: 'Add Exercise',
                       onTap: () async {
+                        if (controller.selectedImage.value == null) {
+                          Get.snackbar('Error', 'Please select an image');
+                          return;
+                        }
+
                         String? res = await controller.addExercise(
                           nameController.text.trim(),
                           type,
                           category,
+                          controller.selectedImage.value!, //  image pass
+                          int.tryParse(setsController.text.trim()) ?? 0,
+                          int.tryParse(repsController.text.trim()) ?? 0,
                         );
+
                         if (res == null) {
                           Get.snackbar(
-                              'Success', 'Exercise added successfully');
+                            'Success',
+                            'Exercise added successfully',
+                          );
+
                           nameController.clear();
+                          setsController.clear();
+                          repsController.clear();
                         } else {
                           Get.snackbar('Error', res);
                         }
